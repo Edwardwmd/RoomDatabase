@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RoomDatabase</string>
+    <string name="role_id_text">ID:</string>
+    <string name="role_name">角色:</string>
+    <string name="role_gender">性别:%s</string>
+    <string name="role_skill">技能:%s</string>
+</resources>

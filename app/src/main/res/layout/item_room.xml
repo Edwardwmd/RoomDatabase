@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+                name="GameRole_info"
+                type="com.edw.roomdatabase.db.gameroledb.GameRole"/>
+    </data>
+    <androidx.cardview.widget.CardView
+            android:elevation="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:cardCornerRadius="8dp"
+            tools:ignore="UnusedAttribute">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:text='@{@string/role_id_text+GameRole_info.id}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/tv_id"/>
+            <TextView
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text='@{@string/role_name+GameRole_info.name}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_role_name"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_id"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"/>
+
+            <TextView
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:text="@{String.format(@string/role_gender,GameRole_info.gender)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tv_gender"
+                    app:layout_constraintStart_toStartOf="@+id/tv_role_name"
+                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="10dp"/>
+
+            <TextView
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:text="@{String.format(@string/role_skill,GameRole_info.skill)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tv_skill"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_role_name" android:layout_marginLeft="35dp"
+                    android:layout_marginStart="15dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

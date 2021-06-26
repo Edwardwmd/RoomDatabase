@@ -1,0 +1,58 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "378c21cb2b37d0782d3d69b2ada7b120",
+    "entities": [
+      {
+        "tableName": "cities",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `c_name` TEXT NOT NULL, `c_pinyin` TEXT NOT NULL, `c_code` TEXT NOT NULL, `c_province` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "c_name",
+            "columnName": "c_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "c_pinyin",
+            "columnName": "c_pinyin",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "c_code",
+            "columnName": "c_code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "c_province",
+            "columnName": "c_province",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '378c21cb2b37d0782d3d69b2ada7b120')"
+    ]
+  }
+}
