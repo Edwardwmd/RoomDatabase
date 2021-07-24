@@ -39,7 +39,6 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
 
       override fun onDestroy() {
             super.onDestroy()
-            checkNotNull(binding)
             binding?.apply {
                   unbind()
                   binding = null

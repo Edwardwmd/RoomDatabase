@@ -34,8 +34,8 @@ abstract class BaseAdapter<T, VB : ViewDataBinding> : RecyclerView.Adapter<BaseV
       }
 
       private val dataList by lazy { mutableListOf<T>() }
-      private var ls: ItemClickListener? = null
-      private var lls: ItemLongClickListener? = null
+      private var ls: ItemClickListener<T>? = null
+      private var lls: ItemLongClickListener<T>? = null
 
       fun setData(data: MutableList<T>) {
             if (dataList.size > 0) dataList.clear()
@@ -70,7 +70,7 @@ abstract class BaseAdapter<T, VB : ViewDataBinding> : RecyclerView.Adapter<BaseV
                   .throttleFirst(500, TimeUnit.MILLISECONDS)
                   .subscribe({
                         ls?.apply {
-                              itemClick(holder.itemView, position)
+                              itemClick(holder.itemView,dataList[position], position)
                         }
                   }, {
                         Log.e(TAG, "防抖动点击错误----》${it.message} ")
@@ -86,7 +86,7 @@ abstract class BaseAdapter<T, VB : ViewDataBinding> : RecyclerView.Adapter<BaseV
                   .throttleFirst(500, TimeUnit.MILLISECONDS)
                   .subscribe({
                         lls?.apply {
-                              itemLongClick(holder.itemView, position)
+                              itemLongClick(holder.itemView,dataList[position], position)
                         }
                   }, {
                         Log.e(TAG, "长按防抖动点击错误----》${it.message} ")
@@ -103,21 +103,21 @@ abstract class BaseAdapter<T, VB : ViewDataBinding> : RecyclerView.Adapter<BaseV
 
       abstract fun onDataBindViewHolder(holder: BaseViewHolder, binding: VB?, element: T, position: Int)
 
-      interface ItemClickListener {
+      interface ItemClickListener<T> {
 
-            fun itemClick(v: View, position: Int)
+            fun itemClick(v: View,element:T,position: Int)
       }
 
-      interface ItemLongClickListener {
+      interface ItemLongClickListener<T> {
 
-            fun itemLongClick(v: View, position: Int)
+            fun itemLongClick(v: View,element:T, position: Int)
       }
 
-      fun setItemClickListener(ls: ItemClickListener) {
+      fun setItemClickListener(ls: ItemClickListener<T>) {
             this.ls = ls
       }
 
-      fun setItemLongClickListener(lls: ItemLongClickListener) {
+      fun setItemLongClickListener(lls: ItemLongClickListener<T>) {
             this.lls = lls
       }
 

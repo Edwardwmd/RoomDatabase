@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+      <data>
+
+            <variable
+                name="click"
+                type="com.edw.roomdatabase.mvvm.LiveDataWithRoomActivity.ProxyClick"/>
+      </data>
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          tools:context=".mvvm.LiveDataWithRoomActivity">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mRecy"
+               android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <ViewStub
+                android:id="@+id/empty_repo"
+                android:layout="@layout/empty_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->click.addData()}"
+                android:text="添加数据"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/deleteAll"/>
+
+            <Button
+                android:id="@+id/deleteAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->click.deleteAll()}"
+                android:text="清空数据"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -21,6 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
 
       override fun initData(savedInstanceState: Bundle?) {
+
             binding?.apply {
                   btnLocal.setOnClickListener {
                         startActivity(Intent(this@MainActivity, CommonRoomActivity::class.java))

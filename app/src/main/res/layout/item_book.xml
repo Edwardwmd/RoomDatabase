@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <data>
+
+            <variable
+                name="book"
+                type="com.edw.roomdatabase.db.livedata.Book"/>
+      </data>
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:elevation="15dp"
+          android:background="@color/half_white"
+          android:layout_width="match_parent"
+          android:layout_height="100dp">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/book_id+book.id}"
+                android:textSize="10sp"
+                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{book.bookName}"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{book.desc}"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@android:color/holo_orange_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/textView2"/>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
